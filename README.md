@@ -10,7 +10,7 @@
 ---
 
 ## **AIM:**  
-To interface an **Temperature and humidity sensor (DHT 11) Soil Moisture Sensor** with the **Raspberry Pi 4** and display the sensor readings using HiveMQ cloud.
+To interface an **Temperature and humidity sensor (DHT 11) Soil Moisture Sensor (REES52)** with the **Raspberry Pi 4** and display the sensor readings using HiveMQ cloud.
 
 ---
 
@@ -25,33 +25,69 @@ To interface an **Temperature and humidity sensor (DHT 11) Soil Moisture Sensor*
 ---
 
 ## **THEORY:**  
-### **About Raspberry Pi Pico:**  
-Raspberry Pi Pico is a microcontroller board based on the **RP2040 chip**. It features:  
-- Dual-core ARM Cortex-M0+ processor  
-- 26 multi-function GPIO pins  
-- Supports **MicroPython** and **C/C++**  
-- Interfaces like **I2C, SPI, UART, and PWM**  
-- Low power consumption, ideal for **IoT applications**  
+<img width="1293" height="744" alt="image" src="https://github.com/user-attachments/assets/3c04afa6-1517-45d2-88f1-e671d9ed1ffb" />
+### FIGURE-01 RASPI PI 4 PINOUT DIAGRAM 
 
-### **About MPU6050 Sensor:**  
-The **MPU6050** is a **6-Axis Inertial Measurement Unit (IMU)** that includes:  
-- **3-axis accelerometer** and **3-axis gyroscope**  
-- **I2C communication protocol** for easy interfacing  
-- **Operating Voltage:** 3.3V – 5V  
-- **Accelerometer Range:** ±2g, ±4g, ±8g, ±16g  
-- **Gyroscope Range:** ±250°/s, ±500°/s, ±1000°/s, ±2000°/s  
+The Raspberry Pi 4 Model B is built around a Broadcom BCM2711 system-on-chip that integrates a quad-core ARM Cortex-A72 (64-bit) CPU, VideoCore VI GPU, memory controller, and peripheral interfaces, forming a compact yet complete computer architecture where the SoC connects internally to RAM, USB 3.0 controller, Gigabit Ethernet, HDMI display, and wireless modules. Its 40-pin GPIO header provides a flexible pin configuration consisting of power pins (5 V and 3.3 V), multiple ground pins, and general-purpose input/output pins that operate at 3.3 V logic and can be programmed for digital I/O or alternate functions. Key alternate functions include I²C (SDA, SCL) for sensor communication, SPI (MOSI, MISO, SCLK, CS) for high-speed peripheral interfacing, UART (TX, RX) for serial communication, and PWM for control applications.  For communication, I2C (SDA, SCL), SPI (MOSI, MISO, SCK), and UART (TX, RX) interfaces are mapped across different GPIO pins, allowing seamless connectivity with sensors and peripherals. All GPIO pins support PWM (Pulse Width Modulation), making it useful for motor control, LED brightness adjustment, and sound applications. The BOOTSEL button enables USB mass storage mode for firmware flashing, while the DEBUG pins (SWD interface) provide debugging capabilities. With its low power consumption, flexible GPIO options, and rich interface support, the Raspberry Pi Pico is widely used for IoT, embedded systems, robotics, and automation projects.This architecture and pin multiplexing allow the Raspberry Pi 4 to act as both a general-purpose computing platform and an embedded controller, supporting rapid prototyping, hardware interfacing, and IoT applications.
+## Temperature and Humidity Sensor (DHT-11:
+The DHT11 is a low-cost digital sensor used to measure ambient temperature and relative humidity in embedded and IoT applications. It integrates a thermistor for temperature sensing and a capacitive humidity sensor for detecting moisture levels in the air, along with an internal 8-bit microcontroller that processes the signals and provides calibrated digital output through a single-wire communication interface. The sensor operates typically at 3.3 V to 5 V, measures temperature in the range of 0 °C to 50 °C with ±2 °C accuracy, and humidity from 20% to 80% with ±5% accuracy. Due to its simple interface, low power consumption, and reliable performance, it is widely used in weather monitoring systems, home automation, agricultural monitoring, and basic environmental data acquisition projects.
 
-The **accelerometer** measures linear acceleration in **X, Y, Z axes**, while the **gyroscope** measures rotational velocity. The sensor communicates with the Raspberry Pi Pico via **I2C protocol**.
+<img width="1000" height="1000" alt="image" src="https://github.com/user-attachments/assets/5c8d35b5-4381-434f-8617-db4b8fe19154" />
 
----
 
-## **WORKING PRINCIPLE:**  
-1. The **MPU6050 sensor** is connected to the **Raspberry Pi Pico** using the **I2C communication protocol**.  
-2. The **Pico reads acceleration and gyroscope values** from the sensor registers.  
-3. The data is **processed and displayed on the serial monitor**.  
-4. The readings can be used for **motion tracking, tilt sensing, or gesture recognition**.
+## Soil Moisture Sensor (REES52):
+The Soil Moisture Sensor (REES52) is a low-cost resistive-type sensor used to measure the volumetric water content present in soil. It operates on the principle that the electrical conductivity of soil changes with moisture level—wet soil conducts electricity better than dry soil due to the presence of water acting as a conductor between the probe electrodes. The module typically consists of two exposed metal probes and a control board with a comparator (often based on LM393), providing both analog output (for precise moisture level measurement) and digital output (for threshold-based detection). It operates at 3.3V–5V, making it compatible with microcontrollers such as Arduino and Raspberry Pi, and is widely used in irrigation control systems, smart agriculture, and automated plant watering applications.
+<img width="800" height="800" alt="image" src="https://github.com/user-attachments/assets/32b40be6-1781-4459-9035-464b6064ec0f" />
 
----
+
+## Working Principle:
+Experiment 4A
+The Ultrasonic sensor Trig pin is connected to one of the GPIO pins of the Raspberry Pi 4.
+The Ultrasonic sensor Echo pin is connected to one of the GPIO pins of the Raspberry Pi 4.
+The Python script sets the take the distance taken echo output and shown in Thingspeak cloud with current status and Console.
+CIRCUIT DIAGRAM
+Connect the Vcc of the Ultrasonic sensor +5V in Raspberrry Pi4.
+Connect the Gnd of the Ultrasonic sensor Gnd in Raspberrry Pi4.
+Connect the Trig pin to any one GPIO.
+Connect the Echo pin to any one GPIO.
+
+
+Experiment 4B
+The IR sensor is connected one of the GPIO pins in Raspberry Pi 4.
+The Python script sets the PIR sensor value based on the motion detected and shown in Thingspeak and console.
+CIRCUIT DIAGRAM
+Connect the PIR sensor Vcc to any +5V.
+Connect the PIR sensor GND to any GND.
+Connect the PIR sensor OUT to any one GPIO. 
+
+Experiment 4A
+## PROGRAM (Python)
+```
+
+
+ 
+
+
+
+ 
+````
+
+### OUPUT  
+Experiment 4A
+
+# FIGURE -02 ADD TITILE HERE 
+
+#  FIGURE -03 ADD TITILE HERE 
+
+# FIGURE -04 ADD TITLE HERE 
+
+Experiment 4B
+
+# FIGURE -05 ADD TITILE HERE 
+
+#  FIGURE -06 ADD TITILE HERE 
+
+# FIGURE -07 ADD TITLE HERE 
 
 ## **CIRCUIT DIAGRAM:**  
 ### **Connections:**  
