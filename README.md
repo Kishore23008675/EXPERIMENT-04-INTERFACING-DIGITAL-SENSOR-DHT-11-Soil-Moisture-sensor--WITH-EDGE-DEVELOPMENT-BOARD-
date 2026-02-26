@@ -35,11 +35,13 @@ The DHT11 is a low-cost digital sensor used to measure ambient temperature and r
 
 <img width="1000" height="1000" alt="image" src="https://github.com/user-attachments/assets/5c8d35b5-4381-434f-8617-db4b8fe19154" />
 
+### FIGURE-02 Temperature and Humidity Sensor (DHT-11)
 
 ## Soil Moisture Sensor (REES52):
 The Soil Moisture Sensor (REES52) is a low-cost resistive-type sensor used to measure the volumetric water content present in soil. It operates on the principle that the electrical conductivity of soil changes with moisture level—wet soil conducts electricity better than dry soil due to the presence of water acting as a conductor between the probe electrodes. The module typically consists of two exposed metal probes and a control board with a comparator (often based on LM393), providing both analog output (for precise moisture level measurement) and digital output (for threshold-based detection). It operates at 3.3V–5V, making it compatible with microcontrollers such as Arduino and Raspberry Pi, and is widely used in irrigation control systems, smart agriculture, and automated plant watering applications.
 <img width="800" height="800" alt="image" src="https://github.com/user-attachments/assets/32b40be6-1781-4459-9035-464b6064ec0f" />
 
+ ### FIGURE-03 Soil Moisture Sensor (REES52) 
 
 ## Working Principle:
 Experiment 4A
